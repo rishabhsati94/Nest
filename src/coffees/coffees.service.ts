@@ -1,26 +1,45 @@
-import {Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
+import { Coffee } from './entity/coffee.entity';
 
 @Injectable()
 export class CoffeesService {
-
-    findAll(res: any, paginationQuery:any){
-        const {limit, offset} = paginationQuery;
-        return res.status(200).send(`this action returns all coffees. Limit ${limit}, offset: ${offset}`);
-    }
-
-    findOne(id:string){
-        return `return this ${id}`;
-    }
     
-    create(body: any){
-        return body;
-    }
+  private coffees: Coffee[] = [
+    {
+      id: 1,
+      name: 'capachino',
+      brand: 'ccd',
+      flavor: ['vanialla', 'choclate'],
+    },
+  ];
 
-    update(id:string, body: any){
-        return `This action updates #${id} coffee`;
-    }
+  findAll() {
+    return this.coffees;
+  }
 
-    remove(id: string){
-        return `This action removes #${id} coffee`;
+  findOne(id: string) {
+    const existing =  this.coffees.find(item => item.id === +id);
+    if(!existing){
+        throw new HttpException(`Not existed`, HttpStatus.NOT_FOUND)
     }
+  }
+
+  create(createCoffeeDto: any) {
+    return this.coffees.push(createCoffeeDto);
+  }
+
+  update(id: string, updateCoffeeDto: any) {
+    const coffeeIndex = this.coffees.findIndex(item => item.id === +id);
+    if(coffeeIndex === -1){
+        throw new NotFoundException(`Coffee with id ${id} not found`);
+    }
+    this.coffees[coffeeIndex] = { ...this.coffees[coffeeIndex], ...updateCoffeeDto };
+    return this.coffees[coffeeIndex];
+
+  }
+
+  remove(id: string) {
+    const coffeeIndex = this.coffees.findIndex(item => item.id === +id);
+    return this.coffees.splice(coffeeIndex, 1);
+  }
 }

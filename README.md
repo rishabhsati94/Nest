@@ -64,7 +64,6 @@ $ npm run test:cov
 - Creation of Controller
 
 ```bash
-# controller creation
 $ nest g co
 ```
 
@@ -76,7 +75,19 @@ $ nest g co
 - Creation of Service
 
 ``` bash
-# service creation
 $ nest g s
 ```
 
+## Entity
+
+- Creation of Entity and DTO
+
+``` bash
+$ nest g cl coffees/entity/coffee.entity --no-spec --flat
+```
+
+- Creation and Intigration of DTO
+
+``` bash
+$ nest g cl coffees/dto/update-coffee.dto --no-spec --flat
+```
