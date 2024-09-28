@@ -91,3 +91,23 @@ $ nest g cl coffees/entity/coffee.entity --no-spec --flat
 ``` bash
 $ nest g cl coffees/dto/update-coffee.dto --no-spec --flat
 ```
+
+
+## Module
+
+- Creation of Module
+
+``` bash
+$ nest g mo
+```
+
+- Add Validation using npm package
+
+``` bash
+$ npm i class-validator class-transformer 
+```
+
+- For maping the same Code example in update DTO
+``` bash
+$ npm i @nestjs/mapped-types
+````
