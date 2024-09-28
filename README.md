@@ -57,3 +57,15 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+
+
+## Controller
+- Creation of Controller
+
+```bash
+# controller creation
+$ nest g co
+```
+
+- Handle Http Status Codes with two approaches
