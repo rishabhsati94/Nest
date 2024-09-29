@@ -228,3 +228,19 @@ transformOptions: {
 ``` bash
  $ npx typeorm migration:generate migrations/MigrationName -d dist/typeorm-cli.config
 ```
+
+
+# Dependency Injection
+
+- For this check Coffee Module
+
+  ```
+    providers: [{
+        provide: CoffeesService,
+        useClass: CoffeesService
+    }],
+  ```
+
+# Encapsulation
+- Create Coffee Rating module and then create a one service and export to other module
+- Export Coffee Service from coffee module to public

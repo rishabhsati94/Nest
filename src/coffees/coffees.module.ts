@@ -12,5 +12,6 @@ import { Flavor } from './entity/flavor.entity';
         provide: CoffeesService,
         useClass: CoffeesService
       }],
+    exports: [CoffeesService]
 })
 export class CoffeesModule {}
