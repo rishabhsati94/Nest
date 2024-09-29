@@ -117,7 +117,7 @@ $ npm i @nestjs/mapped-types
 
 - Create docker yml file
 - using adminer for db ui
-- if you want to use postgres then use this insted of adminer
+- if you want to use postgres then use this instead of adminer
 
 ```
   dbadmin:
@@ -151,7 +151,7 @@ $ npm i @nestjs/mapped-types
 ## Relation
 
 - Create one Flavour Entity
-- Create Realation from Coffee Entity with Flavor Entity
+- Create Relation from Coffee Entity with Flavor Entity
 - Use Flavor Entity in Coffee Service file
 
 ## Cascading Insert and Update
@@ -160,10 +160,10 @@ $ npm i @nestjs/mapped-types
 - Created one private preloadFlavorByName method
 - use this function in create and update method in service file
 
-## Ading a Pagination
+## Adding a Pagination
 
-- Create a Commond DTO For Pagination
-- After the declaration of transformOptions in main we don't need to specefiy the types like this 
+- Create a Command DTO For Pagination
+- After the declaration of transformOptions in main we don't need to specify the types like this 
 
 ``` 
   # For Reference check this in Pagination dto
@@ -182,3 +182,49 @@ transformOptions: {
 
 - Create a common Event Class
 - import DataSource from typeorm for more check coffees service file
+
+
+## Indexing
+
+  There are two approaches
+
+  ```
+    @Index()
+    @Column()
+    name: string;
+  ```
+
+  ```
+    Composite index that contains Multiple column
+    @Index(['name', 'type']) // <-- 
+    export class Event {}
+  ```
+
+
+## Migration Setup
+
+  - Create a typeorm-cli.config.ts
+  - Creating a TypeOrm Migration
+
+``` bash
+  $ npx typeorm migration:create src/migrations/MigrationName
+```
+
+  - Build the Project
+
+``` bash
+ $ npm run build
+```
+
+  - Run the Migrations
+``` bash
+ $ npx typeorm migration:run -d dist/typeorm-cli.config
+```
+  - Revert the migrations
+``` bash
+ $ npx typeorm migration:revert -d dist/typeorm-cli.config
+```
+  - Generate the migrations
+``` bash
+ $ npx typeorm migration:generate migrations/MigrationName -d dist/typeorm-cli.config
+```
