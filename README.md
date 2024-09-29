@@ -146,3 +146,10 @@ $ npm i @nestjs/mapped-types
       private readonly coffeeRepository : Repository<CoffeeEntity>
     ){}
 ```
+
+
+## Relation
+
+- Create one Flavour Entity
+- Create Realation from Coffee Entity with Flavor Entity
+- Use Flavor Entity in Coffee Service file
