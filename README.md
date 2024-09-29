@@ -110,7 +110,7 @@ $ npm i class-validator class-transformer
 - For maping the same Code example in update DTO
 ``` bash
 $ npm i @nestjs/mapped-types
-````
+```
 
 
 ## Integration With DB
@@ -131,6 +131,18 @@ $ npm i @nestjs/mapped-types
 ```
 
 - Install typeorm and postgres
+
 ``` bash
-$ npm install @nestjs/typeorm typeorm pg
-````
+ $ npm install @nestjs/typeorm typeorm pg
+```
+
+
+## Repository
+
+- Create a Constructor in service file
+```
+  constructor(
+      @InjectRepository(CoffeeEntity)
+      private readonly coffeeRepository : Repository<CoffeeEntity>
+    ){}
+```
