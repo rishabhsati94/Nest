@@ -159,3 +159,20 @@ $ npm i @nestjs/mapped-types
 - Add Cascading in Coffee Entity
 - Created one private preloadFlavorByName method
 - use this function in create and update method in service file
+
+## Ading a Pagination
+
+- Create a Commond DTO For Pagination
+- After the declaration of transformOptions in main we don't need to specefiy the types like this 
+
+``` 
+  # For Reference check this in Pagination dto
+  @Type(()=> Number) 
+```
+
+
+```
+transformOptions: {
+      enableImplicitConversion: true
+    }
+```

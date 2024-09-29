@@ -7,7 +7,10 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,       // remove unwawnted parameter  from request
     forbidNonWhitelisted: true,     // throw error is if see unwawnted parameter
-    transform: true  //  conversion of primitive types
+    transform: true,  //  conversion of primitive types
+    transformOptions: {
+      enableImplicitConversion: true
+    }
 
   }))
   await app.listen(3000);
