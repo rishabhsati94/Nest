@@ -153,3 +153,9 @@ $ npm i @nestjs/mapped-types
 - Create one Flavour Entity
 - Create Realation from Coffee Entity with Flavor Entity
 - Use Flavor Entity in Coffee Service file
+
+## Cascading Insert and Update
+
+- Add Cascading in Coffee Entity
+- Created one private preloadFlavorByName method
+- use this function in create and update method in service file
