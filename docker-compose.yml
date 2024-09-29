@@ -1,0 +1,19 @@
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=coffees
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=user
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/db:/var/lib/postgres/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

@@ -111,3 +111,26 @@ $ npm i class-validator class-transformer
 ``` bash
 $ npm i @nestjs/mapped-types
 ````
+
+
+## Integration With DB
+
+- Create docker yml file
+- using adminer for db ui
+- if you want to use postgres then use this insted of adminer
+
+```
+  dbadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - 5050:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin4
+```
+
+- Install typeorm and postgres
+``` bash
+$ npm install @nestjs/typeorm typeorm pg
+````
